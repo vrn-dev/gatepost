@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JposEntries PUBLIC "-//JavaPOS//DTD//EN" "jpos/res/jcl.dtd">
+
+
+<JposEntries>
+
+    <!--********************************************************************************************-->
+    <!--********************************************************************************************-->
+    <!--* TG2480H *-->
+    <!--********************************************************************************************-->
+    <!--********************************************************************************************-->
+
+    <!--CUSTOM TG2480H POS Printer Linux-->
+
+    <JposEntry logicalName="CUSTOM_Engineering_TG2480-H">
+        <creation factoryClass="custom.services.posprinter.SimpleJPOSServiceInstanceFactory"
+                  serviceClass="custom.services.posprinter.TG2480H.CUSTOM_TG2480HPrinterService"/>
+        <vendor name="CUSTOM" url="http://www.custom.biz"/>
+        <jpos category="POSPrinter" version="1.8"/>
+        <product description="Jpos printer driver" name="CUSTOM TG2480H POS Printer" url="http://www.custom.biz"/>
+        <prop name="PhysicalDevice" type="String" value="CUSTOM TG2480H POS Printer"/>
+
+        <prop name="PID" type="String" value="01A8"/>
+        <prop name="deviceBus" type="String" value="USB"/>
+        <!--"portname" for USB device is the "USB Address Number" (refer to the printer Setup)-->
+        <prop name="portName" type="String" value="0"/>
+        <!--"logging" values: "none", "file://[file path / name]" and "video" -->
+        <prop name="logging" type="String" value="Video"/>
+
+        <!--CUSTOM PROPERTIES:-->
+        <!--PrintTextAutoLF: If true, the driver sends a LF after every PrintNormal or PrintImmediate-->
+        <prop name="PrintTextAutoLF" type="String" value="true"/>
+        <!--EnableTOStsSignal: If true, and the printer supports it, the driver signals PTR_SUE_REC_CARTRIDGE_EMPTY if the ticket is present on output, otherwise PTR_SUE_REC_CARTDRIGE_OK-->
+        <prop name="EnableTOStsSignal" type="String" value="false"/>
+
+    </JposEntry>
+
+    <!--<JposEntry logicalName="CUSTOM TG2480H POS Printer COM Linux">-->
+    <!--<creation factoryClass="custom.services.posprinter.SimpleJPOSServiceInstanceFactory" serviceClass="custom.services.posprinter.TG2480H.CUSTOM_TG2480HPrinterService"/>-->
+    <!--<vendor name="CUSTOM" url="http://www.custom.biz"/>-->
+    <!--<jpos category="POSPrinter" version="1.8"/>-->
+    <!--<product description="Jpos printer driver" name="CUSTOM TG2480H POS Printer" url="http://www.custom.biz"/>-->
+    <!--<prop name="PhysicalDevice" type="String" value="CUSTOM TG2480H POS Printer"/>-->
+
+    <!--<prop name="deviceBus" type="String" value="RS232"/>-->
+    <!--<prop name="portName" type="String" value="/dev/ttyS0"/>-->
+    <!--&lt;!&ndash;"flowControl" values: "hardware", "Xon/Xoff" and "none" &ndash;&gt;-->
+    <!--<prop name="flowControl" type="String" value="hardware"/>        -->
+    <!--<prop name="baudRate" type="String" value="115200"/>-->
+    <!--&lt;!&ndash;"logging" values: "none", "file://[file path / name]" and "video" &ndash;&gt;-->
+    <!--<prop name="logging" type="String" value="Video"/>-->
+
+    <!--&lt;!&ndash;CUSTOM PROPERTIES:&ndash;&gt;			 -->
+    <!--&lt;!&ndash;PrintTextAutoLF: If true, the driver sends a LF after every PrintNormal or PrintImmediate&ndash;&gt;	-->
+    <!--<prop name="PrintTextAutoLF" type="String" value="true"/>-->
+    <!--&lt;!&ndash;EnableTOStsSignal: If true, and the printer supports it, the driver signals PTR_SUE_REC_CARTRIDGE_EMPTY if the ticket is present on output, otherwise PTR_SUE_REC_CARTDRIGE_OK&ndash;&gt;	-->
+    <!--<prop name="EnableTOStsSignal" type="String" value="false"/>-->
+
+    <!--</JposEntry>-->
+
+
+    <!--********************************************************************************************-->
+    <!--********************************************************************************************-->
+</JposEntries>

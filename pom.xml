@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ronintech.bayTrans</groupId>
+    <artifactId>gateops1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>gateops1</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <artifactId>customjpos</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <artifactId>jcl</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <artifactId>jpos18-controls</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>com.ronintech.bayTrans.RPi</groupId>-->
+        <!--<artifactId>jpos1122</artifactId>-->
+        <!--<version>0.1</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>com.ronintech.bayTrans.RPi</groupId>-->
+        <!--<artifactId>jpos1122-controls</artifactId>-->
+        <!--<version>0.1</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <artifactId>xerces</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--<plugin>-->
+            <!--&lt;!&ndash; Build an executable JAR &ndash;&gt;-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-jar-plugin</artifactId>-->
+            <!--<version>3.0.2</version>-->
+            <!--<configuration>-->
+            <!--<archive>-->
+            <!--<manifest>-->
+            <!--<addClasspath>true</addClasspath>-->
+            <!--<classpathPrefix>lib/</classpathPrefix>-->
+            <!--<mainClass>com.ronintech.bayTrans.App</mainClass>-->
+            <!--</manifest>-->
+            <!--</archive>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-assembly-plugin</artifactId>-->
+            <!--<version>3.1.0</version>-->
+            <!--<configuration>-->
+            <!--<descriptors>-->
+            <!--<descriptor>assembly.xml</descriptor>-->
+            <!--</descriptors>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<id>make-assembly</id>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>single</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+
+                            <artifactSet>
+                                <includes>
+                                    <include>com.ronintech.bayTrans.RPi:customjpos</include>
+                                    <include>com.ronintech.bayTrans.RPi:jcl</include>
+                                    <include>com.ronintech.bayTrans.RPi:jpos18-controls</include>
+                                    <!--<include>com.ronintech.bayTrans.RPi:jpos1122</include>-->
+                                    <!--<include>com.ronintech.bayTrans.RPi:jpos1122-controls</include>-->
+                                    <include>com.ronintech.bayTrans.RPi:xerces</include>
+                                </includes>
+
+                                <excludes>
+                                    <exclude>com.ronintech.bayTrans.RPi:jpos1122</exclude>
+                                    <exclude>com.ronintech.bayTrans.RPi:jpos1122-controls</exclude>
+                                </excludes>
+                            </artifactSet>
+
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.ronintech.bayTrans.App</mainClass>
+                                </transformer>
+
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>jpos.xml</resource>
+                                    <file>jpos.xml</file>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>libjposprintercomm.so</resource>
+                                    <file>libjposprintercomm.so</file>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>libjposprintercomm64.so</resource>
+                                    <file>libjposprintercomm64.so</file>
+                                </transformer>
+
+                            </transformers>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
