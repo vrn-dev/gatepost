@@ -18,9 +18,9 @@ public class App {
         System.out.println("Initializing");
 
         try {
-            System.out.println("opening printer");
+
             printer.open("CUSTOM_Engineering_TG2480-H");
-            System.out.println("claiming printer");
+
             printer.claim(1);
             printer.setDeviceEnabled(true);
 

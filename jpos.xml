@@ -17,13 +17,13 @@
                   serviceClass="custom.services.posprinter.TG2480H.CUSTOM_TG2480HPrinterService"/>
         <vendor name="CUSTOM" url="http://www.custom.biz"/>
         <jpos category="POSPrinter" version="1.8"/>
-        <product description="Jpos printer driver" name="CUSTOM TG2480H POS Printer" url="http://www.custom.biz"/>
-        <prop name="PhysicalDevice" type="String" value="CUSTOM TG2480H POS Printer"/>
+        <product description="Jpos printer driver" name="CUSTOM_Engineering_TG2480-H" url="http://www.custom.biz"/>
+        <prop name="PhysicalDevice" type="String" value="CUSTOM_Engineering_TG2480-H"/>
 
         <prop name="PID" type="String" value="01A8"/>
-        <prop name="deviceBus" type="String" value="USB"/>
+        <prop name="deviceBus" type="String" value="003"/>
         <!--"portname" for USB device is the "USB Address Number" (refer to the printer Setup)-->
-        <prop name="portName" type="String" value="0"/>
+        <prop name="portName" type="String" value="003"/>
         <!--"logging" values: "none", "file://[file path / name]" and "video" -->
         <prop name="logging" type="String" value="Video"/>
 

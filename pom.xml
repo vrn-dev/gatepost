@@ -17,19 +17,19 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <groupId>com.ronintech.jpos</groupId>
             <artifactId>customjpos</artifactId>
             <version>0.1</version>
         </dependency>
 
         <dependency>
-            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <groupId>com.ronintech.jpos</groupId>
             <artifactId>jcl</artifactId>
             <version>0.1</version>
         </dependency>
 
         <dependency>
-            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <groupId>com.ronintech.jpos</groupId>
             <artifactId>jpos18-controls</artifactId>
             <version>0.1</version>
         </dependency>
@@ -47,9 +47,15 @@
         <!--</dependency>-->
 
         <dependency>
-            <groupId>com.ronintech.bayTrans.RPi</groupId>
+            <groupId>com.ronintech.jpos</groupId>
             <artifactId>xerces</artifactId>
             <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ronintech</groupId>
+            <artifactId>escposlib</artifactId>
+            <version>1.2</version>
         </dependency>
 
         <dependency>
@@ -112,24 +118,25 @@
 
                             <artifactSet>
                                 <includes>
-                                    <include>com.ronintech.bayTrans.RPi:customjpos</include>
-                                    <include>com.ronintech.bayTrans.RPi:jcl</include>
-                                    <include>com.ronintech.bayTrans.RPi:jpos18-controls</include>
+                                    <include>com.ronintech.jpos:customjpos</include>
+                                    <include>com.ronintech.jpos:jcl</include>
+                                    <include>com.ronintech.jpos:jpos18-controls</include>
                                     <!--<include>com.ronintech.bayTrans.RPi:jpos1122</include>-->
                                     <!--<include>com.ronintech.bayTrans.RPi:jpos1122-controls</include>-->
-                                    <include>com.ronintech.bayTrans.RPi:xerces</include>
+                                    <include>com.ronintech.jpos:xerces</include>
+                                    <include>com.ronintech:escposlib</include>
                                 </includes>
 
-                                <excludes>
-                                    <exclude>com.ronintech.bayTrans.RPi:jpos1122</exclude>
-                                    <exclude>com.ronintech.bayTrans.RPi:jpos1122-controls</exclude>
-                                </excludes>
+                                <!--<excludes>-->
+                                    <!--<exclude>com.ronintech.bayTrans.RPi:jpos1122</exclude>-->
+                                    <!--<exclude>com.ronintech.bayTrans.RPi:jpos1122-controls</exclude>-->
+                                <!--</excludes>-->
                             </artifactSet>
 
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.ronintech.bayTrans.App</mainClass>
+                                    <mainClass>com.ronintech.bayTrans.EscPosApp</mainClass>
                                 </transformer>
 
                                 <transformer

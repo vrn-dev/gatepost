@@ -10,10 +10,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.ronintech.bayTrans.RPi:customjpos:0.1" level="project" />
-    <orderEntry type="library" name="Maven: com.ronintech.bayTrans.RPi:jcl:0.1" level="project" />
-    <orderEntry type="library" name="Maven: com.ronintech.bayTrans.RPi:jpos18-controls:0.1" level="project" />
-    <orderEntry type="library" name="Maven: com.ronintech.bayTrans.RPi:xerces:0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ronintech.jpos:customjpos:0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ronintech.jpos:jcl:0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ronintech.jpos:jpos18-controls:0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ronintech.jpos:xerces:0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ronintech:escposlib:1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
   </component>
 </module>
